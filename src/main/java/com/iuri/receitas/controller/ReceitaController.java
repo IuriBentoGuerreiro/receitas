@@ -40,7 +40,7 @@ public class ReceitaController {
         return ReceitaResponse.converter(receitaService.atualizar(id, request));
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar(@PathVariable Integer id){
         receitaService.deletar(id);
