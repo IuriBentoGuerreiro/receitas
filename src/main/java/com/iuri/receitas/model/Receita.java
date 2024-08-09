@@ -23,9 +23,9 @@ public class Receita {
     private Integer id;
     @Column(name = "titulo")
     private String titulo;
-    @Column(name = "ingredientes")
+    @Column(name = "ingredientes", length = 5000)
     private String ingredientes;
-    @Column(name = "instrucoes")
+    @Column(name = "instrucoes", length = 5000)
     private String instrucoes;
     @Column(name = "data_criacao")
     private LocalDate dataCriacao;
