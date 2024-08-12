@@ -3,6 +3,7 @@ package com.iuri.receitas.controller;
 import com.iuri.receitas.dto.ReceitaRequest;
 import com.iuri.receitas.dto.ReceitaResponse;
 import com.iuri.receitas.service.ReceitaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class ReceitaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ReceitaResponse salvar(@RequestBody ReceitaRequest request){
+    public ReceitaResponse salvar(@Valid @RequestBody ReceitaRequest request){
         return receitaService.salvar(request);
     }
 
@@ -36,7 +37,7 @@ public class ReceitaController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public ReceitaResponse atualizar(@PathVariable Integer id, @RequestBody ReceitaRequest request){
+    public ReceitaResponse atualizar(@Valid @PathVariable Integer id, @RequestBody ReceitaRequest request){
         return ReceitaResponse.converter(receitaService.atualizar(id, request));
     }
 
